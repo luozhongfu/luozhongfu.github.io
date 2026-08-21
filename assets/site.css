@@ -118,6 +118,24 @@ ul.clean { padding-left: 1.2em; }
 }
 .site-footer a { color: var(--ink-soft); }
 
+.chapter figure {
+  margin: 28px 0;
+}
+.chapter figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+.chapter figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
 @media (max-width: 720px) {
   body { font-size: 17px; }
   .wrap { width: calc(100% - 28px); }

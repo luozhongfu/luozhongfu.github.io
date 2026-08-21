@@ -3,15 +3,21 @@
 from __future__ import annotations
 
 import html
+import io
 import json
 import re
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+from PIL import Image
+
 ROOT = Path(__file__).resolve().parents[1]
 DOCX = Path(r"C:\Users\ayluozhongfu\Downloads\AI时代慈善组织数字底座设计.docx")
 W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+A = "{http://schemas.openxmlformats.org/drawingml/2006/main}"
+R = "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}"
+PKG_REL = "{http://schemas.openxmlformats.org/package/2006/relationships}"
 
 NAV = [
     ("/", "首页"),
@@ -54,22 +60,70 @@ def para_style(p) -> str:
     return el.get(f"{W}val") or ""
 
 
-def load_paragraphs():
+def para_rids(p) -> list[str]:
+    rids = []
+    for blip in p.findall(f".//{A}blip"):
+        rid = blip.get(f"{R}embed") or blip.get("embed")
+        if rid:
+            rids.append(rid)
+    return rids
+
+
+def load_rel_map(zf: zipfile.ZipFile) -> dict[str, str]:
+    root = ET.fromstring(zf.read("word/_rels/document.xml.rels"))
+    mapping = {}
+    for rel in root:
+        rid = rel.get("Id")
+        target = rel.get("Target")
+        typ = rel.get("Type", "")
+        if rid and target and typ.endswith("/image"):
+            mapping[rid] = "word/" + target.lstrip("/")
+    return mapping
+
+
+def compress_image(raw: bytes, dest: Path) -> str:
+    img = Image.open(io.BytesIO(raw))
+    img = img.convert("RGB")
+    w, h = img.size
+    max_w = 1600
+    if w > max_w:
+        img = img.resize((max_w, int(h * max_w / w)), Image.Resampling.LANCZOS)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    out = dest.with_suffix(".jpg")
+    img.save(out, "JPEG", quality=82, optimize=True)
+    return out.name
+
+
+def load_blocks(img_dir: Path):
     with zipfile.ZipFile(DOCX) as z:
         root = ET.fromstring(z.read("word/document.xml"))
-    paras = root.findall(f".//{W}body/{W}p")
-    rows = []
-    for i, p in enumerate(paras):
-        text = para_text(p)
-        if not text:
-            continue
-        rows.append((i, para_style(p), text))
-    return rows
+        rels = load_rel_map(z)
+        paras = root.findall(f".//{W}body/{W}p")
+        blocks = []
+        used = {}
+        n = 0
+        for i, p in enumerate(paras):
+            text = para_text(p)
+            images = []
+            for rid in para_rids(p):
+                src = rels.get(rid)
+                if not src:
+                    continue
+                if rid not in used:
+                    n += 1
+                    name = compress_image(z.read(src), img_dir / f"fig-{n:02d}")
+                    used[rid] = name
+                    print("image", rid, src, "->", name)
+                images.append(used[rid])
+            if not text and not images:
+                continue
+            blocks.append((i, para_style(p), text, images))
+    return blocks
 
 
 def split_chapters(rows):
     starts = []
-    for i, (idx, style, text) in enumerate(rows):
+    for i, (_idx, style, text, _images) in enumerate(rows):
         if style == "000003" and re.match(r"^第[一二三四五六七八九十]+章", text):
             starts.append(i)
     chunks = []
@@ -81,29 +135,38 @@ def split_chapters(rows):
 
 def to_md(chunk) -> str:
     lines = []
-    for _, style, text in chunk:
-        if style == "000003":
-            lines.append(f"# {text}\n")
-        elif style == "000002":
-            lines.append(f"## {text}\n")
-        elif style == "000004":
-            lines.append(f"## {text}\n")
-        elif style == "000005":
-            lines.append(f"### {text}\n")
-        elif style == "000006":
-            lines.append(f"#### {text}\n")
-        elif style == "000001":
-            lines.append(f"**{text}**\n")
-        else:
-            lines.append(f"{text}\n")
+    for _, style, text, images in chunk:
+        if text:
+            if style == "000003":
+                lines.append(f"# {text}\n")
+            elif style in {"000002", "000004"}:
+                lines.append(f"## {text}\n")
+            elif style == "000005":
+                lines.append(f"### {text}\n")
+            elif style == "000006":
+                lines.append(f"#### {text}\n")
+            elif style == "000001":
+                lines.append(f"**{text}**\n")
+            else:
+                lines.append(f"{text}\n")
+        for name in images:
+            lines.append(f"![书中插图](/book/images/{name})\n")
     return "\n".join(lines).strip() + "\n"
 
 
 def md_to_html_body(md: str) -> str:
     out = []
+    img_re = re.compile(r"^!\[([^\]]*)\]\(([^)]+)\)$")
     for raw in md.splitlines():
         line = raw.rstrip()
         if not line:
+            continue
+        m = img_re.match(line)
+        if m:
+            alt, src = m.group(1), m.group(2)
+            out.append(
+                f'<figure><img src="{html.escape(src)}" alt="{html.escape(alt)}" loading="lazy"></figure>'
+            )
             continue
         if line.startswith("# "):
             out.append(f"<h1>{html.escape(line[2:])}</h1>")
@@ -220,18 +283,19 @@ def page_html(title: str, description: str, canonical: str, body: str, current: 
 def main():
     if not DOCX.exists():
         raise SystemExit(f"missing book: {DOCX}")
-    rows = load_paragraphs()
+    book_dir = ROOT / "book"
+    md_dir = book_dir / "md"
+    img_dir = book_dir / "images"
+    book_dir.mkdir(exist_ok=True)
+    md_dir.mkdir(exist_ok=True)
+    img_dir.mkdir(exist_ok=True)
+    rows = load_blocks(img_dir)
     chunks = split_chapters(rows)
     if len(chunks) != 16:
         print("chapter count", len(chunks))
         for i, c in enumerate(chunks, 1):
             print(i, c[0][2][:80])
         raise SystemExit("expected 16 chapters")
-
-    book_dir = ROOT / "book"
-    md_dir = book_dir / "md"
-    book_dir.mkdir(exist_ok=True)
-    md_dir.mkdir(exist_ok=True)
 
     full_md = [
         "# AI时代慈善组织数字底座设计\n",
@@ -246,7 +310,7 @@ def main():
         (md_dir / f"{slug}.md").write_text(md, encoding="utf-8")
         full_md.append(md)
         full_md.append("\n---\n")
-        first_paras = [t for _, s, t in chunk if s not in {"000002", "000003"}][:2]
+        first_paras = [t for _, s, t, _imgs in chunk if t and s not in {"000002", "000003"}][:2]
         desc = " ".join(first_paras)[:140]
         body = md_to_html_body(md)
         prev_next = []
