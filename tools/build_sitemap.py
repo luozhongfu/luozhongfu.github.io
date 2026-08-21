@@ -6,7 +6,7 @@ pages = []
 for p in sorted(root.rglob("*")):
     if ".git" in p.parts or "tools" in p.parts:
         continue
-    if p.suffix.lower() not in {".html", ".md", ".txt", ".json"}:
+    if p.suffix.lower() not in {".html", ".md", ".txt", ".json", ".xml"}:
         continue
     rel = p.relative_to(root).as_posix()
     if rel == "index.html":
