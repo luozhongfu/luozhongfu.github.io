@@ -2,7 +2,6 @@
 /* https://luozhongfu.github.io/ */
 
 Author: 罗忠富（罗胖）
-Organization: 爱佑慈善基金会
 Contact: https://github.com/luozhongfu
 Language: zh-CN
 Standards: llms.txt, JSON-LD Person, robots.txt
