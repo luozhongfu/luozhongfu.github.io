@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://luozhongfu.github.io/#person",
+  "name": "罗忠富",
+  "alternateName": ["罗胖", "Luo Zhongfu"],
+  "disambiguatingDescription": "爱佑慈善基金会数据与AI业务负责人，公益慈善行业数字化、AI与大数据实践者。不是得到App创始人罗振宇。",
+  "description": "罗忠富（罗胖），公益慈善行业数字化专家、AI践行者。现任爱佑慈善基金会数据与AI业务负责人。提出慈善组织数字底座：本体、事实中心、知识中心、规则中心，以及AI Agent与Workflow。著有《AI时代慈善组织数字底座设计》。",
+  "url": "https://luozhongfu.github.io/",
+  "image": "https://avatars.githubusercontent.com/u/162258661?v=4",
+  "jobTitle": "数据与AI业务负责人",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "爱佑慈善基金会",
+    "alternateName": "Ai You Foundation",
+    "url": "http://www.ayfoundation.org/"
+  },
+  "nationality": "China",
+  "knowsAbout": [
+    "公益慈善数字化转型",
+    "慈善组织数字底座",
+    "领域本体",
+    "组织事实中心",
+    "知识中心",
+    "规则中心",
+    "AI Agent",
+    "Workflow",
+    "业财一体化",
+    "公益大数据",
+    "捐赠人服务",
+    "隐私保护"
+  ],
+  "author": {
+    "@type": "Book",
+    "name": "AI时代慈善组织数字底座设计",
+    "url": "https://luozhongfu.github.io/book/"
+  },
+  "sameAs": [
+    "https://github.com/luozhongfu",
+    "https://www.chinadevelopmentbrief.org.cn/news/detail/24508.html",
+    "https://www.zgcsj.com/yxlcs/2025-04-02/74.shtml",
+    "https://www.zgcsj.com/gd/2025-04-21/1749.shtml",
+    "https://www.chinadevelopmentbrief.org.cn/news/detail/65968.html",
+    "http://gongyishibao.com/html/gongyizixun/16485.html"
+  ]
+}

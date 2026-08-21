@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第五章 如何建立慈善组织的领域本体（Domain Ontology）｜罗忠富</title>
+  <meta name="description" content="数字世界不是画出来的，也不是设计出来的，而是从慈善组织几十年的业务实践中&quot;提炼&quot;出来的。本体建设不是重新创造一个世界，而是帮助AI重新认识这个世界。 一、本体建设，不是建模，而是认识世界">
+  <meta name="author" content="罗忠富">
+  <link rel="canonical" href="https://luozhongfu.github.io/book/ch05.html">
+  <meta property="og:title" content="第五章 如何建立慈善组织的领域本体（Domain Ontology）｜罗忠富">
+  <meta property="og:description" content="数字世界不是画出来的，也不是设计出来的，而是从慈善组织几十年的业务实践中&quot;提炼&quot;出来的。本体建设不是重新创造一个世界，而是帮助AI重新认识这个世界。 一、本体建设，不是建模，而是认识世界">
+  <meta property="og:url" content="https://luozhongfu.github.io/book/ch05.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="zh_CN">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://luozhongfu.github.io/#person", "name": "罗忠富", "alternateName": ["罗胖", "Luo Zhongfu"], "disambiguatingDescription": "爱佑慈善基金会数据与AI业务负责人，公益慈善行业数字化、AI与大数据实践者。不是得到App创始人罗振宇。", "jobTitle": "数据与AI业务负责人", "worksFor": {"@type": "Organization", "name": "爱佑慈善基金会", "url": "http://www.ayfoundation.org/"}, "url": "https://luozhongfu.github.io/", "sameAs": ["https://github.com/luozhongfu", "https://www.chinadevelopmentbrief.org.cn/news/detail/24508.html", "https://www.zgcsj.com/yxlcs/2025-04-02/74.shtml", "https://www.zgcsj.com/gd/2025-04-21/1749.shtml", "https://www.chinadevelopmentbrief.org.cn/news/detail/65968.html", "http://gongyishibao.com/html/gongyizixun/16485.html"], "knowsAbout": ["公益慈善数字化转型", "慈善组织数字底座", "领域本体", "数据中心", "知识中心", "规则中心", "AI Agent", "Workflow", "业财一体化", "公益大数据"]}, {"@type": "Book", "@id": "https://luozhongfu.github.io/book/#book", "name": "AI时代慈善组织数字底座设计", "alternateName": "基于本体论、数据中心、知识中心、规则中心与AI Agent的数字化架构", "author": {"@id": "https://luozhongfu.github.io/#person"}, "inLanguage": "zh-CN", "url": "https://luozhongfu.github.io/book/"}, {"@type": "Chapter", "name": "第五章 如何建立慈善组织的领域本体（Domain Ontology）", "isPartOf": {"@id": "https://luozhongfu.github.io/book/#book"}, "author": {"@id": "https://luozhongfu.github.io/#person"}, "url": "https://luozhongfu.github.io/book/ch05.html", "inLanguage": "zh-CN"}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">罗忠富<small>LUO ZHONGFU · 罗胖</small></a>
+      <nav><a href="/">首页</a><a href="/about.html">关于</a><a href="/book/" aria-current="page">著作</a><a href="/ideas/">观点</a><a href="/practice.html">实践</a><a href="/press.html">报道</a><a href="/faq.html">FAQ</a></nav>
+    </div>
+  </header>
+  <main class="wrap chapter">
+<h1>第五章 如何建立慈善组织的领域本体（Domain Ontology）</h1>
+<p>数字世界不是画出来的，也不是设计出来的，而是从慈善组织几十年的业务实践中&quot;提炼&quot;出来的。本体建设不是重新创造一个世界，而是帮助AI重新认识这个世界。</p>
+<h2>一、本体建设，不是建模，而是认识世界</h2>
+<p>很多组织第一次听说Ontology，都会认为：</p>
+<p>是不是又要开始画UML？</p>
+<p>是不是又要开始设计ER图？</p>
+<p>是不是又要重新设计数据库？</p>
+<p>事实上，都不是。</p>
+<p>本体建设最容易犯的错误，就是把它理解成一项IT工作。</p>
+<p>实际上，本体建设首先是一项认知工程（Cognitive Engineering）。</p>
+<p>什么叫认知工程？</p>
+<p>就是回答一个最根本的问题：我们的组织，到底是什么？</p>
+<p>例如：</p>
+<p>如果今天关闭所有系统。</p>
+<p>CRM没有了，OA没有了，财务系统没有了，数据库全部删除。</p>
+<p>基金会还存在吗？</p>
+<p>答案当然是：存在。</p>
+<p>因为基金会真正存在的是：</p>
+<p>捐赠人，公益项目，执行机构，受益人，资金，预算，制度，规则，员工，合作伙伴。</p>
+<p>这些东西不会因为系统消失而消失。</p>
+<p>所以：系统只是载体，对象才是真实世界。</p>
+<p>因此：建立本体的第一步，不是设计数据库。</p>
+<p>而是：认识现实世界。</p>
+<h2>二、本体建设，不是从系统开始，而是从对象开始</h2>
+<p>过去二十年的数字化建设，本质上是在回答一个问题：</p>
+<p>如何把数据管理得更好。</p>
+<p>于是，我们建设了：</p>
+<p>CRM系统、项目管理系统、财务系统、OA系统、</p>
+<p>HR系统、数据仓库、数据湖、数据中台、甚至主数据管理（MDM）。</p>
+<p>这些系统已经能够很好地解决：</p>
+<p>数据采集、数据共享、数据同步、统一编码、统一主数据。</p>
+<p>可以说，今天很多大型基金会已经不缺数据。</p>
+<p>真正缺少的是：AI能够理解这些数据。</p>
+<p>这是AI时代与传统数字化最大的区别。</p>
+<p>过去，系统关注的是：数据是否一致。</p>
+<p>今天，AI关注的是：这些数据到底代表什么。</p>
+<p>因此，AI真正需要的，不只是统一的数据，而是统一的对象定义。</p>
+<p>举一个例子。</p>
+<p>一位捐赠人，CRM里面有一份资料。</p>
+<p>财务系统里面有一份资料，互联网募捐平台里面也有记录。</p>
+<p>微信公众号、小程序、活动系统里还有互动信息。</p>
+<p>数据治理已经能够把这些数据关联到同一个ID。</p>
+<p>但是，对于AI来说，仅仅知道它们属于同一个人，还远远不够。</p>
+<p>AI更需要理解：</p>
+<p>他是长期月捐人，还是一次性捐赠人？</p>
+<p>是否参与过多个慈善项目？是否偏好大病救助、教育还是乡村振兴？</p>
+<p>是否关联某家企业配捐？是否存在限制性捐赠？是否担任专项基金发起人？</p>
+<p>这些都不仅仅是数据字段。</p>
+<p>而是对象的属性、关系和业务语义。</p>
+<p>真正存在于现实世界中的，不是：</p>
+<p>CRM Donor、财务 Donor、腾讯公益 Donor。</p>
+<p>而是：Donor（捐赠人）</p>
+<p>所有系统，只是在描述同一个对象的不同侧面。</p>
+<p>因此，我们提出一个新的观点：</p>
+<p>数字化建设关注的是数据的一致性。</p>
+<p>本体建设关注的是对象的一致性。</p>
+<p>数据治理解决的是：数据有没有。</p>
+<p>本体建设解决的是：数据代表什么。</p>
+<p>过去二十多年的数字化建设，更多是围绕数据展开。我们把业务数据采集下来、存储起来、汇总起来，再通过报表、统计分析和数据仓库，为管理者提供决策支持。换句话说，把数据放在一起，是为了存储、为了计算、为了最终给人看。</p>
+<p>而AI时代，这种思路需要进一步升级。我们重新定义数据、重新组织数据，并不是为了生成更多报表，而是为了让AI能够真正理解组织的业务世界。AI看到的不应该只是一张张数据表、一列列字段，而应该是一个个真实存在的业务对象，以及这些对象之间的关系、规则和语义。</p>
+<p>数据仓库关注的是数据之间的关联，而领域本体关注的是现实世界对象之间的关联。数据仓库能够回答：&quot;有多少位捐赠人&quot;&quot;今年募了多少钱&quot;&quot;资助了多少个项目&quot;；而领域本体能够进一步回答：&quot;什么样的捐赠人，更愿意支持什么样的公益项目&quot;&quot;在什么规则下形成什么资金&quot;&quot;这些资金最终流向哪些受益人，并产生了怎样的公益价值&quot;。</p>
+<p>数据描述的是事实，本体描述的是世界。 数据仓库存储的是记录，本体表达的是对象、关系、属性和规则。当AI能够理解&quot;捐赠人&quot;&quot;基金&quot;&quot;项目&quot;&quot;受益人&quot;&quot;医院&quot;这些对象，以及它们之间完整的业务关系后，它才能真正进行推理、规划、决策和执行。</p>
+<p>因此，本体建设并不是对数据进行一次新的分类，而是把面向人的数据世界，重新组织成一个面向AI理解的数字世界。 这正是AI能够理解业务、进行推理、制定计划、调用工具并完成复杂任务的基础，也是未来智能组织最重要的数字底座。</p>
+<p>因此，AI时代真正的变化不是：</p>
+<p>过去：系统--&gt;数据--&gt;分析</p>
+<p>而是：现实世界--&gt;对象（Object）--&gt;关系（Relation）--&gt;规则（Rule）--&gt;知识（Knowledge）--&gt;AI Agent--&gt;各类业务系统</p>
+<p>这里，系统不再是组织认知的起点，而只是对象、关系和规则的一种实现形式。</p>
+<p>真正处于中心位置的，不再是数据库，也不是某一个业务系统，而是整个慈善组织统一的领域本体（Domain Ontology）。</p>
+<h2>三、所有基金会其实只有几十个核心对象</h2>
+<p>这是提出的第二个重要观点。</p>
+<p>很多人觉得基金会非常复杂。</p>
+<p>实际上如果站在Ontology角度观察。</p>
+<p>几乎所有基金会都可以抽象成几十类对象。</p>
+<p>例如：</p>
+<h3>第一类：人（Person）</h3>
+<p>包括：</p>
+<p>捐赠人。</p>
+<p>受益人。</p>
+<p>患儿。</p>
+<p>志愿者。</p>
+<p>员工。</p>
+<p>理事。</p>
+<p>医生。</p>
+<p>社工。</p>
+<p>专家。</p>
+<p>……</p>
+<p>他们都是：</p>
+<p>Person。</p>
+<h3>第二类：组织（Organization）</h3>
+<p>包括：</p>
+<p>基金会。</p>
+<p>企业。</p>
+<p>医院。</p>
+<p>学校。</p>
+<p>政府。</p>
+<p>公益平台。</p>
+<p>媒体。</p>
+<p>合作机构。</p>
+<p>……</p>
+<h3>第三类：项目（Project）</h3>
+<p>例如：</p>
+<p>儿童医疗。</p>
+<p>乡村教育。</p>
+<p>灾害救援。</p>
+<p>科研支持。</p>
+<p>社区服务。</p>
+<p>……</p>
+<h3>第四类：资金（Fund）</h3>
+<p>包括：</p>
+<p>专项资金。</p>
+<p>限定性资金。</p>
+<p>非限定性资金。</p>
+<p>月捐资金。</p>
+<p>企业配捐。</p>
+<p>公开募捐。</p>
+<p>互联网筹款。</p>
+<p>……</p>
+<h3>第五类：预算（Budget）</h3>
+<p>年度预算。</p>
+<p>项目预算。</p>
+<p>部门预算。</p>
+<p>专项预算。</p>
+<p>预算调整。</p>
+<p>预算执行。</p>
+<p>……</p>
+<h3>第六类：合同（Agreement）</h3>
+<p>捐赠协议。</p>
+<p>合作协议。</p>
+<p>采购合同。</p>
+<p>医院协议。</p>
+<p>授权协议。</p>
+<p>……</p>
+<h3>第七类：事件（Event）</h3>
+<p>捐赠。</p>
+<p>审批。</p>
+<p>付款。</p>
+<p>探访。</p>
+<p>培训。</p>
+<p>会议。</p>
+<p>活动。</p>
+<p>签约。</p>
+<p>……</p>
+<h3>第八类：资源（Resource）</h3>
+<p>医院。</p>
+<p>药品。</p>
+<p>车辆。</p>
+<p>物资。</p>
+<p>AI模型。</p>
+<p>办公设备。</p>
+<p>……</p>
+<h3>第九类：知识（Knowledge）</h3>
+<p>制度。</p>
+<p>流程。</p>
+<p>FAQ。</p>
+<p>案例。</p>
+<p>培训资料。</p>
+<p>法律法规。</p>
+<p>……</p>
+<h3>第十类：规则（Rule）</h3>
+<p>审批规则。</p>
+<p>预算规则。</p>
+<p>资金规则。</p>
+<p>风险规则。</p>
+<p>权限规则。</p>
+<p>……</p>
+<p>如果把这些对象全部定义清楚。</p>
+<p>其实：</p>
+<p>整个基金会已经建立完成。</p>
+<p>数据库只是保存这些对象。</p>
+<p>系统只是操作这些对象。</p>
+<h2>四、本体重要不只是对象，还有关系</h2>
+<p>很多组织建设Ontology的时候。</p>
+<p>喜欢画很多框，做对象，然后结束。其实真正重要的是：Relation。</p>
+<p>因为：世界不只是靠对象组成的。</p>
+<p>世界是依赖关系组成的。</p>
+<p>例如：</p>
+<p>请注意：</p>
+<p>真正产生智能的不是：Donor！</p>
+<p>而是：Donor支持Project，project通过执行机构帮助受益人</p>
+<p>因为：AI开始能够推理。</p>
+<p>例如：</p>
+<p>用户问：&quot;腾讯今年支持了哪些地区？&quot;</p>
+<p>AI开始推理：</p>
+<p>腾讯↓哪些专项基金↓支持哪些项目↓项目覆盖哪些地区↓地区有哪些特殊儿童</p>
+<p>这就是：Reasoning。推理能力。</p>
+<p>所以，本体建设70%的工作。其实都是：关系建设。</p>
+<h2>五、关系之后，就是规则</h2>
+<p>很多人认为：Ontology结束以后，知识图谱开始。</p>
+<p>其实AI时代还要增加一层：Rule。</p>
+<p>例如：资金 --可以付款吗？</p>
+<p>不能看对象，要看规则。</p>
+<p>例如：</p>
+<p>专项资金↓是否允许跨项目↓否</p>
+<p>那么：AI直接知道：不能支付。</p>
+<p>再例如：</p>
+<p>预算余额  &gt;  付款金额</p>
+<p>当预算金额大于付款金额允许付款。</p>
+<p>否则：禁止付款。</p>
+<p>所以：未来AI不是查制度，而是：执行规则。</p>
+<p>规则应该成为Ontology的重要组成部分。</p>
+<h2>六、对象、关系、规则，共同组成数字世界</h2>
+<p>至此，我们提出一个新的模型。</p>
+<p>过去组织喜欢这样理解：</p>
+<p>数据库↓系统↓业务</p>
+<p>AI时代应该变成：</p>
+<p>对象（Object）↓关系（Relation）↓规则（Rule）↓事件（Event）↓知识（Knowledge）</p>
+<p>我们把它简称：ORREK模型。</p>
+<p>这五部分共同构成：Digital World。</p>
+<p>这就是：AI真正工作的世界。</p>
+<h2>七、本体建设的五步法（CDOM）</h2>
+<p>经过前面的分析，我们正式提出的方法论——CDOM（Charity Domain Ontology Method）。它不是一个软件工具，而是一套从业务认知到AI落地的建设路径。</p>
+<h3>第一步：识别对象（Identify Objects）</h3>
+<p>回答一个问题：基金会里到底有什么？</p>
+<p>不是系统，不是表，而是真实存在的业务对象。</p>
+<p>例如：</p>
+<p>捐赠人</p>
+<p>公益项目</p>
+<p>资金</p>
+<p>学校、医院、福利机构等</p>
+<p>受益人</p>
+<p>合同</p>
+<p>发票</p>
+<p>活动</p>
+<p>志愿者</p>
+<p>社工</p>
+<p>.........</p>
+<p>这一阶段回答的是：&quot;世界里有什么。&quot;</p>
+<h3>第二步：定义属性（Define Attributes）</h3>
+<p>每一个对象都具有自己的属性。</p>
+<p>例如，&quot;捐赠人&quot;不仅有姓名、联系方式，还可以有捐赠偏好、历史捐赠金额、参与活动记录、沟通偏好等。</p>
+<p>&quot;项目&quot;不仅有名称，还包括项目类型、预算、执行周期、负责人、覆盖地区、服务对象等。</p>
+<p>属性让对象变得完整。</p>
+<h3>第三步：建立关系（Build Relations）</h3>
+<p>回答第二个问题：</p>
+<p>它们之间是什么关系？</p>
+<p>例如：</p>
+<p>捐赠人支持项目；</p>
+<p>项目服务受益人；</p>
+<p>XX执行项目；</p>
+<p>项目消耗预算；</p>
+<p>预算约束付款；</p>
+<p>合同约束合作。</p>
+<p>关系越完整，AI的推理能力越强。</p>
+<h3>第四步：提炼规则（Extract Rules）</h3>
+<p>回答第三个问题：</p>
+<p>这个世界如何运行？</p>
+<p>例如：</p>
+<p>限定性资金不得跨项目使用；</p>
+<p>超预算不能付款；</p>
+<p>未签协议不得合作；</p>
+<p>未完成审批不得执行。</p>
+<p>规则使AI从&quot;理解&quot;走向&quot;执行&quot;。</p>
+<h3>第五步：持续演进（Continuous Evolution）</h3>
+<p>本体不是一次性项目，而是组织能力的持续沉淀。</p>
+<p>随着新的项目、新的筹款模式、新的政策法规、新的AI应用不断出现，本体也会不断扩展。</p>
+<p>因此，本体应该成为基金会的一项长期治理资产，而不是一次性交付成果。</p>
+<h2>八、本体中心——AI数字底座的第一层</h2>
+<p>至此，我们可以重新定义整个AI平台的底座。</p>
+<p>本体中心不是一个数据库，也不是一个新系统，而是所有数据、知识、规则、智能体共同遵循的统一语义标准。</p>
+<p>以后，无论新增一个智能客服、智能审批、智能筹款，还是一个新的业务系统，都不需要重新理解基金会，因为它们共享同一个本体中心。</p>
+<p>这意味着，组织第一次拥有了统一的&quot;数字语言&quot;。</p>
+<h2>九、本章小结</h2>
+<p>如果说第四章回答的是&quot;本体从哪里来&quot;，那么第五章回答的就是&quot;本体如何建立&quot;。</p>
+<p>本章提出了三个核心观点：</p>
+<p>第一，本体建设不是IT建模，而是组织认知工程。</p>
+<p>第二，慈善组织可以抽象为对象、关系、规则、事件和知识共同构成的数字世界，而不是若干业务系统的集合。</p>
+<p>第三，CDOM（Charity Domain Ontology Method）为基金会提供了一条从业务认知到AI落地的完整路径：识别对象、定义属性、建立关系、提炼规则、持续演进。</p>
+<p>至此，第一篇&quot;数字世界&quot;完成了最核心的理论基础。接下来的第二篇，我们将进入&quot;数据世界&quot;，讨论当领域本体建立之后，数据中心如何从传统的数据仓库升级为AI时代的数据底座，以及主数据、数据字典、元数据、标签中心、指标中心如何围绕本体协同工作，为知识中心、规则中心和AI Agent持续提供高质量的数据支撑。</p>
+<p>第一篇《数字世界》，讲的是世界观。</p>
+<p>第二篇《数据世界》，开始进入真正的工程设计。</p>
+<p>我们不准备再按照传统数据库、数据仓库大数据那套方法去写。</p>
+<p>因为AI时代的数据中心，已经完全不是2015年大家理解的数据中台了。</p>
+<p>这一章，我们希望提出一个新的观点：</p>
+<p>数据中心不是数据仓库（Data Warehouse），而是AI的事实中心（Fact Center）。</p>
+<p>很多人说数据中心存的是数据。</p>
+<p>我认为不准确。</p>
+<p>AI看来：数据中心保存的是事实（Fact）。</p>
+<p>而知识中心保存的是知识（Knowledge）。</p>
+<p>规则中心保存的是规则（Rule）。</p>
+<p>本体中心保存的是语义（Semantic）。</p>
+<p>这四个东西共同组成AI。</p>
+<h2>第二篇 数据世界</h2>
+<p>-----------------------AI时代的数据中心</p><p class="small"><a href="/book/ch04.html">上一章</a> · <a href="/book/">目录</a> · <a href="/book/md/ch05.md">Markdown</a> · <a href="/book/ch06.html">下一章</a></p>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>罗忠富（罗胖）｜公益慈善行业数字化专家 · AI践行者</div>
+      <div><a href="/llms.txt">llms.txt</a> · <a href="/entity.json">entity.json</a> · <a href="https://github.com/luozhongfu/luozhongfu.github.io">GitHub</a></div>
+    </div>
+  </footer>
+</body>
+</html>

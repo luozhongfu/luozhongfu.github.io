@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第十三章 Workflow——让业务流程进入智能运行时代｜罗忠富</title>
+  <meta name="description" content="过去几十年，企业和慈善组织一直在建设流程系统。 OA审批、项目管理、财务系统、CRM系统，本质上都在解决一个问题：">
+  <meta name="author" content="罗忠富">
+  <link rel="canonical" href="https://luozhongfu.github.io/book/ch13.html">
+  <meta property="og:title" content="第十三章 Workflow——让业务流程进入智能运行时代｜罗忠富">
+  <meta property="og:description" content="过去几十年，企业和慈善组织一直在建设流程系统。 OA审批、项目管理、财务系统、CRM系统，本质上都在解决一个问题：">
+  <meta property="og:url" content="https://luozhongfu.github.io/book/ch13.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="zh_CN">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://luozhongfu.github.io/#person", "name": "罗忠富", "alternateName": ["罗胖", "Luo Zhongfu"], "disambiguatingDescription": "爱佑慈善基金会数据与AI业务负责人，公益慈善行业数字化、AI与大数据实践者。不是得到App创始人罗振宇。", "jobTitle": "数据与AI业务负责人", "worksFor": {"@type": "Organization", "name": "爱佑慈善基金会", "url": "http://www.ayfoundation.org/"}, "url": "https://luozhongfu.github.io/", "sameAs": ["https://github.com/luozhongfu", "https://www.chinadevelopmentbrief.org.cn/news/detail/24508.html", "https://www.zgcsj.com/yxlcs/2025-04-02/74.shtml", "https://www.zgcsj.com/gd/2025-04-21/1749.shtml", "https://www.chinadevelopmentbrief.org.cn/news/detail/65968.html", "http://gongyishibao.com/html/gongyizixun/16485.html"], "knowsAbout": ["公益慈善数字化转型", "慈善组织数字底座", "领域本体", "数据中心", "知识中心", "规则中心", "AI Agent", "Workflow", "业财一体化", "公益大数据"]}, {"@type": "Book", "@id": "https://luozhongfu.github.io/book/#book", "name": "AI时代慈善组织数字底座设计", "alternateName": "基于本体论、数据中心、知识中心、规则中心与AI Agent的数字化架构", "author": {"@id": "https://luozhongfu.github.io/#person"}, "inLanguage": "zh-CN", "url": "https://luozhongfu.github.io/book/"}, {"@type": "Chapter", "name": "第十三章 Workflow——让业务流程进入智能运行时代", "isPartOf": {"@id": "https://luozhongfu.github.io/book/#book"}, "author": {"@id": "https://luozhongfu.github.io/#person"}, "url": "https://luozhongfu.github.io/book/ch13.html", "inLanguage": "zh-CN"}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">罗忠富<small>LUO ZHONGFU · 罗胖</small></a>
+      <nav><a href="/">首页</a><a href="/about.html">关于</a><a href="/book/" aria-current="page">著作</a><a href="/ideas/">观点</a><a href="/practice.html">实践</a><a href="/press.html">报道</a><a href="/faq.html">FAQ</a></nav>
+    </div>
+  </header>
+  <main class="wrap chapter">
+<h1>第十三章 Workflow——让业务流程进入智能运行时代</h1>
+<p>过去几十年，企业和慈善组织一直在建设流程系统。</p>
+<p>OA审批、项目管理、财务系统、CRM系统，本质上都在解决一个问题：</p>
+<p>一件事情应该按照什么顺序完成。</p>
+<p>但是进入AI时代，流程系统面临一个新的问题：</p>
+<p>流程本身没有变化，但是流程中的大量工作正在被重新定义。</p>
+<p>例如：</p>
+<p>过去，一个工作人员需要：</p>
+<p>阅读几十份捐赠资料；</p>
+<p>整理项目执行数据；</p>
+<p>撰写捐赠人反馈报告；</p>
+<p>制作项目照片说明；</p>
+<p>检查发票和票据；</p>
+<p>人工处理隐私信息。</p>
+<p>今天，这些工作仍然存在，但是其中大量环节，可以交给AI完成。</p>
+<p>因此，AI Workflow并不是简单替代传统流程，而是在原有业务流程之上，增加一个智能执行层。</p>
+<p>未来的组织不是重新设计所有流程，而是：让每一个业务流程拥有AI能力。</p>
+<h2>一、为什么传统Workflow已经无法满足AI时代需求</h2>
+<p>过去的Workflow系统解决的是：“事情按照什么步骤流转。”</p>
+<p>例如，一个项目付款流程：</p>
+<p>项目申请↓负责人审核↓财务审核↓领导审批↓付款</p>
+<p>系统非常清楚：</p>
+<p>谁负责？什么时候提交？下一步是谁？</p>
+<p>但是它不知道：</p>
+<p>这份材料是否完整？这个项目有什么风险？这次付款是否符合历史规则？</p>
+<p>这份报告应该如何写？</p>
+<p>原因是：传统Workflow主要处理结构化信息。</p>
+<p>例如：</p>
+<p>状态；</p>
+<p>节点；</p>
+<p>人员；</p>
+<p>时间；</p>
+<p>权限。</p>
+<p>但是现实业务中，大量工作来自非结构化信息：</p>
+<p>Word报告；</p>
+<p>Excel表格；</p>
+<p>图片；</p>
+<p>PDF合同；</p>
+<p>微信聊天记录；</p>
+<p>会议纪要。</p>
+<p>这些内容过去只能依靠人工理解。</p>
+<p>而LLM的出现，使Workflow第一次具备了理解业务内容的能力。</p>
+<h2>二、AI Workflow的核心变化</h2>
+<p>传统Workflow：</p>
+<p>固定流程↓人工处理内容↓系统记录结果</p>
+<p>AI Workflow：</p>
+<p>业务流程↓AI理解内容↓AI辅助执行↓人工确认↓系统沉淀数据</p>
+<p>它的变化主要体现在三个方面。</p>
+<p><strong>1. 流程不变，但是节点变智能</strong></p>
+<p>例如：</p>
+<p>过去：工作人员制作捐赠人反馈报告。</p>
+<p>流程：</p>
+<p>收集资料↓整理项目数据↓撰写报告↓审核↓发送</p>
+<p>现在：流程仍然一样。</p>
+<p>但是每个节点增加AI能力：</p>
+<p>收集资料↓AI读取项目数据↓AI分析照片↓AI生成报告初稿↓AI检查隐私风险↓人工审核↓发送</p>
+<p>流程没有改变，改变的是每一个节点的能力。</p>
+<p><strong>2. Workflow开始理解业务内容</strong></p>
+<p>传统系统看到：</p>
+<p>文件：2026XX项目反馈报告.docx状态：待审核</p>
+<p>AI Workflow可以理解：</p>
+<p>这是一份：</p>
+<p>企业捐赠反馈报告；</p>
+<p>对应某个项目；</p>
+<p>面向某个捐赠人；</p>
+<p>包含救助案例；</p>
+<p>里面存在受益人照片；</p>
+<p>需要进行隐私检查。</p>
+<p>它开始理解：“这是什么事情”。</p>
+<p><strong>3. Workflow可以调用AI能力</strong></p>
+<p>传统Workflow调用：</p>
+<p>数据库；</p>
+<p>API；</p>
+<p>审批节点。</p>
+<p>AI Workflow可以调用：</p>
+<p>大语言模型；</p>
+<p>OCR；</p>
+<p>图像识别；</p>
+<p>知识库；</p>
+<p>规则中心；</p>
+<p>数据分析工具。</p>
+<p>因此，一个Workflow实际上变成：业务流程 + AI能力编排系统。</p>
+<h2>三、一个真实案例：捐赠人反馈报告Workflow</h2>
+<p>我们来看基金会最常见的一类工作：</p>
+<p>为企业捐赠人生成项目反馈报告。</p>
+<p>过去：</p>
+<p>项目结束后，工作人员需要收集：</p>
+<p>项目执行数据；</p>
+<p>受益人数；</p>
+<p>项目照片；</p>
+<p>财务支出情况；</p>
+<p>项目总结材料。</p>
+<p>然后人工制作报告，整个过程可能需要几天甚至更长时间。</p>
+<p>AI Workflow之后：</p>
+<h3>Step 1：启动报告流程</h3>
+<p>系统收到任务：</p>
+<p>“生成XX企业2026年度儿童医疗项目反馈报告。”</p>
+<p>Workflow启动。</p>
+<p>识别：报告类型：</p>
+<p>反馈报告</p>
+<p>关联对象：</p>
+<p>捐赠企业（公募平台）↓项目↓执行机构↓受益人</p>
+<h3>Step 2：自动获取数据</h3>
+<p>Workflow调用数据中心。</p>
+<p>获取：</p>
+<h3>Step 3：AI生成报告内容</h3>
+<p>LLM根据报告模板生成：</p>
+<p>例如：</p>
+<p><strong>第一部分：项目介绍</strong></p>
+<p>自动生成：</p>
+<p>“2026年度援助项目由XX企业支持……”</p>
+<p><strong>第二部分：项目执行情况</strong></p>
+<p>自动整理：</p>
+<p>“截至2026年6月，项目累计帮助……”</p>
+<p><strong>第三部分：案例故事</strong></p>
+<p>AI读取：</p>
+<p>社工记录；</p>
+<p>服务过程；</p>
+<p>图片说明。</p>
+<p>生成：符合传播要求的案例描述。</p>
+<h3>Step 4：AI处理图片</h3>
+<p>过去：工作人员需要人工检查照片。</p>
+<p>现在：Workflow调用视觉模型。</p>
+<p>自动完成：图片理解</p>
+<p>识别：</p>
+<p>图片内容；</p>
+<p>场景；</p>
+<p>活动类型。</p>
+<p>例如：“儿童康复训练现场”。</p>
+<p><strong>隐私保护</strong></p>
+<p>自动检测：</p>
+<p>人脸；</p>
+<p>身份证；</p>
+<p>病历信息。</p>
+<p>例如：发现儿童照片：</p>
+<p>自动：</p>
+<p>人脸打码；</p>
+<p>敏感信息遮挡。</p>
+<h3>Step 5：AI检查票据和附件</h3>
+<p>如果报告包含：</p>
+<p>发票；</p>
+<p>支出凭证；</p>
+<p>收据。</p>
+<p>Workflow调用OCR。</p>
+<p>识别：</p>
+<p>发票号码；</p>
+<p>金额；</p>
+<p>日期；</p>
+<p>开票单位。</p>
+<p>并检查：是否与财务数据一致。</p>
+<h3>Step 6：人工审核发布</h3>
+<p>最终输出：</p>
+<p>AI生成初稿↓工作人员审核↓修改确认↓发送企业</p>
+<p>整个流程没有改变。</p>
+<p>但是：原来需要几天，现在可能几个小时完成。</p>
+<h2>四、AI Workflow的核心不是重新设计流程，而是智能化流程</h2>
+<p>很多人理解AI Workflow，会认为：</p>
+<p>“以后AI会自动创造流程。”</p>
+<p>实际上企业落地阶段，更重要的是：</p>
+<p>找到已有流程中的人工工作，把AI嵌进去。</p>
+<p>例如：</p>
+<p><strong>财务报销流程</strong></p>
+<p>流程不变：</p>
+<p>申请↓审核↓付款</p>
+<p>AI增强：</p>
+<p>自动识别发票；</p>
+<p>自动检查金额；</p>
+<p>自动判断费用类别；</p>
+<p>自动提示风险。</p>
+<p><strong>项目结项流程</strong></p>
+<p>流程不变：</p>
+<p>提交材料↓审核↓归档</p>
+<p>AI增强：</p>
+<p>自动读取报告；</p>
+<p>自动检查缺失材料；</p>
+<p>自动生成总结；</p>
+<p>自动发现异常。</p>
+<p><strong>捐赠管理流程</strong></p>
+<p>流程不变：</p>
+<p>企业联系↓捐赠确认↓反馈报告↓关系维护</p>
+<p>AI增强：</p>
+<p>自动生成企业画像；</p>
+<p>自动分析沟通记录；</p>
+<p>自动生成感谢信；</p>
+<p>自动推荐沟通策略。</p>
+<h2>五、Workflow的核心能力：AI编排</h2>
+<p>AI Workflow真正的价值不是生成内容。</p>
+<p>而是：把多个AI能力组织成一个完整业务流程。</p>
+<p>例如：一个反馈报告Workflow：</p>
+<p>Workflow↓数据查询Agent↓OCR Agent↓视觉Agent↓写作Agent↓隐私审核Agent↓人工审核</p>
+<p>Workflow负责：什么时候调用谁。</p>
+<h3>1. 节点编排</h3>
+<p>决定：下一步调用什么能力。</p>
+<p>例如：发现有图片，调用视觉模型。</p>
+<p>发现有票据：调用OCR。</p>
+<p>发现需要文字：调用LLM。</p>
+<h3>2. 数据编排</h3>
+<p>决定：数据如何流动。</p>
+<p>例如：</p>
+<p>项目数据：</p>
+<p>↓</p>
+<p>报告生成</p>
+<p>↓</p>
+<p>图片分析</p>
+<p>↓</p>
+<p>案例生成</p>
+<p>↓</p>
+<p>最终报告。</p>
+<h3>3. 人机协同编排</h3>
+<p>AI不是完全替代人。</p>
+<p>而是：AI处理大量重复工作。</p>
+<p>人在关键节点确认。</p>
+<p>例如：</p>
+<p>AI生成↓人工审核↓发布</p>
+<h2>七、基金会常见AI Workflow类型</h2>
+<p>未来慈善组织会出现大量智能Workflow。</p>
+<p><strong>1. 捐赠管理Workflow</strong></p>
+<p>包括：</p>
+<p>企业资料整理；</p>
+<p>捐赠协议生成；</p>
+<p>感谢信生成；</p>
+<p>反馈报告制作；</p>
+<p>企业关系维护。</p>
+<p><strong>项目执行Workflow</strong></p>
+<p><strong>资料采集</strong></p>
+<p><strong>审核</strong></p>
+<p><strong>AI驱动流程</strong></p>
+<p><strong>财务Workflow</strong></p>
+<p><strong>资料审核</strong></p>
+<p><strong>票据识别</strong></p>
+<p><strong>智能分摊</strong></p>
+<p><strong>4. 信息传播Workflow</strong></p>
+<p><strong>管理Workflow</strong></p>
+<p><strong>风控Agent（Risk &amp; Compliance Agent）</strong></p>
+<p>对应：数据字典 + 规则中心 + 合规审查体系</p>
+<p><strong>职责：</strong></p>
+<p>数据合规</p>
+<p>隐私保护</p>
+<p>异常检测</p>
+<p>重复救助识别</p>
+<p>审计支持</p>
+<h2>八、Workflow的未来：从自动化走向智能化</h2>
+<p>过去：Workflow解决：“减少人工操作。”</p>
+<p>未来AI Workflow解决：“让组织运行更加智能。”</p>
+<p>未来的组织流程：</p>
+<p>不是：</p>
+<p>人推动流程</p>
+<p>而是：</p>
+<p>流程自动运行↓AI处理大量任务↓人处理关键决策</p>
+<p>最终形成：AI驱动的业务运行体系。</p><p class="small"><a href="/book/ch12.html">上一章</a> · <a href="/book/">目录</a> · <a href="/book/md/ch13.md">Markdown</a> · <a href="/book/ch14.html">下一章</a></p>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>罗忠富（罗胖）｜公益慈善行业数字化专家 · AI践行者</div>
+      <div><a href="/llms.txt">llms.txt</a> · <a href="/entity.json">entity.json</a> · <a href="https://github.com/luozhongfu/luozhongfu.github.io">GitHub</a></div>
+    </div>
+  </footer>
+</body>
+</html>
